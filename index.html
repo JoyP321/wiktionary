@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiktionary Link Generator</title>
+    <link rel="stylesheet" href="styles.css" id="themeStylesheet">
+    <link rel="stylesheet" href="toggle-switch.css">
+</head>
+<body>
+    
+    <h1>Welcome, Kristiana!</h1>
+    <div class="switch-container">
+        <span class="mode-label">Normal Mode</span>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span class="mode-label">Baby Mode</span>
+    </div>
+    <p>Enter words separated by spaces:</p>
+    <textarea id="wordInput" rows="4" cols="50" placeholder="Type words here..."></textarea><br>
+    <button onclick="generateLinks()">Generate Links</button>
+    <ul id="linkList"></ul>
+
+    <script>
+        function generateLinks() {
+            const input = document.getElementById('wordInput').value;
+            const words = input.split(' ');
+            const linkList = document.getElementById('linkList');
+            linkList.innerHTML = ''; // Clear previous links
+
+            words.forEach(word => {
+                if (word.trim()) {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `https://en.wiktionary.org/wiki/${word}`;
+                    link.textContent = word;
+                    link.target = '_blank'; // Opens link in a new tab
+                    listItem.appendChild(link);
+                    linkList.appendChild(listItem);
+                }
+            });
+        }
+
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            const stylesheet = document.getElementById('themeStylesheet');
+            if (this.checked) {
+                stylesheet.href = 'baby-mode.css';
+            } else {
+                stylesheet.href = 'styles.css';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-image: url('babymode.png');
+    background-size:contain;
+    background-position: center;
+    color: #d147a3;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ff6699;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ff99cc;
+    font-size: 16px;
+    background-color: rgba(255, 235, 238, 0.8); /* Slight transparency to blend with the background */
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff6699;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e60073;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    width: 100%;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ff3399;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    textarea {
+        width: 100%;
+    }
+}
