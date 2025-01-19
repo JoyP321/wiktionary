@@ -20,6 +20,17 @@
     </div>
     <p>Enter words separated by spaces:</p>
     <textarea id="wordInput" rows="4" cols="50" placeholder="Type words here..."></textarea><br>
+
+    <p>Select language:</p>
+    <select id="languageSelect">
+        <option value="Italian">Italian</option>
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+        <option value="Spanish">Spanish</option>
+    </select><br><br>
+
+
     <button onclick="generateLinks()">Generate Links</button>
     <ul id="linkList"></ul>
 
@@ -27,6 +38,7 @@
         function generateLinks() {
             const input = document.getElementById('wordInput').value;
             const words = input.split(' ');
+            const selectedLanguage = document.getElementById('languageSelect').value;
             const linkList = document.getElementById('linkList');
             linkList.innerHTML = ''; // Clear previous links
 
@@ -34,7 +46,8 @@
                 if (word.trim()) {
                     const listItem = document.createElement('li');
                     const link = document.createElement('a');
-                    link.href = `https://en.wiktionary.org/wiki/${word}`;
+                    const languageAnchor = `#${selectedLanguage}`;
+                    link.href = `https://en.wiktionary.org/wiki/${word}${languageAnchor}`;
                     link.textContent = word;
                     link.target = '_blank'; // Opens link in a new tab
                     listItem.appendChild(link);
